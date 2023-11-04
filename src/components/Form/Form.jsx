@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { Button, FormContainer, Input, Text } from './Form.styled';
+import { Button, FormContainer, Label, Input, Text } from './Form.styled';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts, addContact } from 'Redux/asyncRedux/requestsAPI';
@@ -49,7 +49,8 @@ export default function Form() {
   return (
     <form onSubmit={handleSub}>
       <FormContainer>
-        <Text>Name</Text>
+        <Label>
+        <Text>Name</Text> 
         <Input
           type="text"
           name="name"
@@ -57,8 +58,9 @@ export default function Form() {
           onChange={handleChange}
           value={name}
         />
-
-        <Text>Number </Text>
+</Label>
+        <Label>
+        <Text>Number</Text>  
         <Input
           type="tel"
           name="number"
@@ -66,7 +68,7 @@ export default function Form() {
           onChange={handleChange}
           value={number}
         />
-
+</Label>
         <Button type="submit">Add contact</Button>
       </FormContainer>
     </form>
