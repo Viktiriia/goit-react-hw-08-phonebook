@@ -24,7 +24,9 @@ const LoginPage = () => {
           <Title>Authorization</Title>
           <Label>
             <Text>Email:</Text>
-            <Input {...register('email', { required: true })} type="email" />
+            <Input {...register('email', { required: true })} 
+            type="email"
+             placeholder="Please enter email address" />
             {errors.email && <span>This field is required</span>}
           </Label>
           <Label>
@@ -32,6 +34,7 @@ const LoginPage = () => {
             <Input
               {...register('password', { required: true, minLength: 7 })}
               type="password"
+              placeholder="Please enter password"
             />
             {errors.password && <span>This field is required</span>}
           </Label>

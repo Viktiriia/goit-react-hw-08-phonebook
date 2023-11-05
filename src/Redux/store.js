@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { newReducers } from './asyncRedux/contactReducers'; 
-import { filterReducer } from './filtersSlice';
+import { contactsReducer } from './asyncRedux/contactReducers'; 
+// import { filterReducer } from './filtersSlice';
 import { authReducer } from './Authorization/authReducer'; 
 import storage from 'redux-persist/lib/storage';
 import {
@@ -20,10 +20,12 @@ const authConfig = {
   whitelist: ['token'],
 };
 export const rootReducer = combineReducers({
-    contacts:  newReducers ,
-    filter: filterReducer,
+    contacts:  contactsReducer ,
+    // filter: filterReducer,
     auth: persistReducer(authConfig, authReducer),
 });
+
+
 
 export const store = configureStore({
   reducer: rootReducer,

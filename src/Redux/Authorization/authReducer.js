@@ -41,8 +41,7 @@ export const refreshThunk = createAsyncThunk(
     try {
       setToken(token);
       const authData = await requestRefreshUser();
-      console.log('authData: ', authData);
-
+      
       return authData; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

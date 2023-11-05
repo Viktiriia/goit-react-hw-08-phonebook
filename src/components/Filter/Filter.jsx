@@ -1,20 +1,25 @@
+import React from 'react';
 import { Input } from 'components/Form/Form.styled';
 import { useDispatch } from 'react-redux';
-import { filterContacts } from 'Redux/filtersSlice';
+import { setFilterTerm } from 'Redux/asyncRedux/contactReducers';
 
-export const Filter = ({filter}) => {
-  
+const Filter = ({ filter }) => {
   const dispatch = useDispatch();
 
+  const handleFilterChange = (event) => {
+    const filterValue = event.target.value;
+    dispatch(setFilterTerm(filterValue)); 
+  };
+
   return (
-    <>
-      <Input
-        placeholder="Search name"
-        type="text"
-        name="filter"
-        value={filter}
-        onChange={e => dispatch(filterContacts(e.target.value))}
-      />
-    </>
+    <Input
+      placeholder="Search name"
+      type="text"
+      name="filter"
+      value={filter}
+      onChange={handleFilterChange} 
+    />
   );
 };
+
+export default Filter;
