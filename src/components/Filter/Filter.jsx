@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from 'components/Form/Form.styled';
 import { useDispatch } from 'react-redux';
-import { setFilterTerm } from 'Redux/asyncRedux/contactReducers';
+import { setFilterTerm } from 'Redux/contactReducers';
 
 const Filter = ({ filter }) => {
   const dispatch = useDispatch();
